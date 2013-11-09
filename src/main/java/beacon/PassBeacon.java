@@ -10,6 +10,9 @@ public class PassBeacon implements Parcelable {
     public int major;
     public int minor;
     public String relevantText;
+    public String title;
+    public String callbackActionString;
+
 
     public PassBeacon() {
 
@@ -26,6 +29,8 @@ public class PassBeacon implements Parcelable {
         dest.writeInt(this.major);
         dest.writeInt(this.minor);
         dest.writeString(this.relevantText);
+        dest.writeString(this.title);
+        dest.writeString(this.callbackActionString);
     }
 
     public PassBeacon(Parcel in) {
@@ -33,6 +38,8 @@ public class PassBeacon implements Parcelable {
         this.major = in.readInt();
         this.minor = in.readInt();
         this.relevantText = in.readString();
+        this.title = in.readString();
+        this.callbackActionString = in.readString();
     }
 
     public static Creator<PassBeacon> CREATOR = new Creator<PassBeacon>() {
